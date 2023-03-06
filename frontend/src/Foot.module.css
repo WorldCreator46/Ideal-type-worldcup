@@ -1,0 +1,17 @@
+.FootContainer {
+  position: fixed;
+  top: 95%;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  color: #ffffff;
+  z-index: 100;
+}
+
+.FootSpan {
+  margin: 0;
+}
