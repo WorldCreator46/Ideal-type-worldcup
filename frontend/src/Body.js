@@ -51,7 +51,14 @@ function Content({ id, title, description, firstPlace, secondPlace }) {
 }
 
 function Profile({ img, name }) {
-  return <div></div>;
+  return (
+    <div>
+      <img src={img} alt={name} />
+      <p>
+        <span>{name}</span>
+      </p>
+    </div>
+  );
 }
 
 function Buttons({ id }) {
