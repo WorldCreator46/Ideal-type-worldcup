@@ -1,0 +1,44 @@
+.ButtonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.startButton {
+  border: 2px solid #2ecc71;
+  background-color: #ffffff;
+  color: #2ecc71;
+}
+
+.rankingButton {
+  border: 2px solid #9b59b6;
+  background-color: #ffffff;
+  color: #9b59b6;
+}
+
+.sharingButton {
+  border: 2px solid #3498db;
+  background-color: #ffffff;
+  color: #3498db;
+}
+
+.buttonText {
+  margin-left: 0.3rem;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.startButton:hover {
+  background-color: #2ecc71;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+.rankingButton:hover {
+  background-color: #9b59b6;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}
+.sharingButton:hover {
+  background-color: #3498db;
+  color: #ffffff;
+  transition: all 0.2s ease-in-out;
+}

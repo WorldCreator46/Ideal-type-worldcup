@@ -1,5 +1,6 @@
 import React from 'react';
 import styles from './Body.module.css';
+import Buttons from './Buttons';
 /**
  * mainData :
  *
@@ -16,7 +17,6 @@ import styles from './Body.module.css';
 function Body({ mainData }) {
   return (
     <div className={styles.BodyContainer}>
-      <h1>Body</h1>
       {mainData.map((i) => {
         return (
           <Content
@@ -36,8 +36,8 @@ function Content({ id, title, description, firstPlace, secondPlace }) {
   return (
     <div>
       <div>
-        <Profile img={firstPlace.src} name={firstPlace.name} />
-        <Profile img={secondPlace.src} name={secondPlace.name} />
+        <Profile name={firstPlace} />
+        <Profile name={secondPlace} />
       </div>
       <div>
         <h2>{title}</h2>
@@ -50,19 +50,15 @@ function Content({ id, title, description, firstPlace, secondPlace }) {
   );
 }
 
-function Profile({ img, name }) {
+function Profile({ name }) {
   return (
     <div>
-      <img src={img} alt={name} />
+      <img src={name + '.png'} alt={name} />
       <p>
         <span>{name}</span>
       </p>
     </div>
   );
-}
-
-function Buttons({ id }) {
-  return;
 }
 
 export default Body;
