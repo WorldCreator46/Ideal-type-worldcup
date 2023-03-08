@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Body.module.css';
-import Buttons from './Buttons';
+import Content from './Content';
 /**
  * mainData :
  *
@@ -28,35 +28,6 @@ function Body({ mainData }) {
           />
         );
       })}
-    </div>
-  );
-}
-
-function Content({ id, title, description, firstPlace, secondPlace }) {
-  return (
-    <div>
-      <div>
-        <Profile name={firstPlace} />
-        <Profile name={secondPlace} />
-      </div>
-      <div>
-        <h2>{title}</h2>
-        <p>
-          <span>{description}</span>
-        </p>
-        <Buttons id={id} />
-      </div>
-    </div>
-  );
-}
-
-function Profile({ name }) {
-  return (
-    <div>
-      <img src={name + '.png'} alt={name} />
-      <p>
-        <span>{name}</span>
-      </p>
     </div>
   );
 }
