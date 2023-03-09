@@ -1,7 +1,7 @@
 //import styles from './App.module.css';
-import Body from './Body';
-import Foot from './Foot';
-import Header from './Header';
+import Body from './Body/Body';
+import Foot from './Foot/Foot';
+import Header from './Header/Header';
 
 function App() {
   const tempData = [

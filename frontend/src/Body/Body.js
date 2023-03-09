@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Body.module.css';
-import Content from './Content';
+import Content from './Content/Content';
 /**
  * mainData :
  *

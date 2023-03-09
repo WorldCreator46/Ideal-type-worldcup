@@ -1,7 +1,7 @@
 import React from 'react';
-import Buttons from './Buttons';
+import Buttons from './Buttons/Buttons';
 import styles from './Content.module.css';
-import Profile from './Profile';
+import Profile from './Profile/Profile';
 function Content({ id, title, description, firstPlace, secondPlace }) {
   return (
     <div className={styles.A}>
