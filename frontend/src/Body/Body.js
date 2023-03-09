@@ -1,6 +1,7 @@
 import React from 'react';
 import styles from './Body.module.css';
 import Content from './Content/Content';
+
 /**
  * mainData :
  *
@@ -17,17 +18,20 @@ import Content from './Content/Content';
 function Body({ mainData }) {
   return (
     <div className={styles.BodyContainer}>
-      {mainData.map((i) => {
-        return (
-          <Content
-            id={i.id}
-            title={i.title}
-            description={i.description}
-            firstPlace={i.firstPlace}
-            secondPlace={i.secondPlace}
-          />
-        );
-      })}
+      <div className={styles.ContentContainer}>
+        {mainData.map((i, k) => {
+          return (
+            <Content
+              key={k}
+              id={i.id}
+              title={i.title}
+              description={i.description}
+              firstPlace={i.firstPlace}
+              secondPlace={i.secondPlace}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 }
