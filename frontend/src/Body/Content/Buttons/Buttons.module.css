@@ -5,9 +5,9 @@
   padding-bottom: 3%;
 }
 .startButton {
-  border: 2px solid #2ecc71;
+  border: 2px solid #28b764;
   background-color: #ffffff;
-  color: #2ecc71;
+  color: #28b764;
 }
 
 .rankingButton {
@@ -24,7 +24,7 @@
 
 .buttonText {
   margin-left: 0.3rem;
-  font-size: 1rem;
+  font-size: 1.2rem;
   font-weight: normal;
 }
 

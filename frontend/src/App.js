@@ -1,7 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import styles from './App.module.css';
 import Body from './Body/Body';
-import Foot from './Foot/Foot';
 import Header from './Header/Header';
 
 function App() {
@@ -329,7 +328,6 @@ function MainPage({ mainData }) {
     <div className={styles.Body}>
       <Header />
       <Body mainData={mainData} />
-      <Foot />
     </div>
   );
 }
