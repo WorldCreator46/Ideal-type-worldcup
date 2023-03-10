@@ -32,7 +32,7 @@ function Body({ mainData }) {
   const Cell = ({ columnIndex, rowIndex, style }) => {
     const index = rowIndex * columnCount + columnIndex;
     const { width, height, top, left, bottom } = getCellSize(index);
-
+    console.log({ ...style, top, left, bottom, width, height });
     return (
       <div style={{ ...style, top, left, bottom, width, height }}>
         <Content
