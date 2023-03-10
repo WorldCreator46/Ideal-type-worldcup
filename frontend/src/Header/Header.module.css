@@ -1,5 +1,5 @@
 .headerContainer {
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -19,7 +19,27 @@
 
 .Logo {
   font-size: xx-large;
-  margin-top: 5%;
+  margin-top: 10%;
   white-space: nowrap;
   color: white;
+}
+
+@media (max-width: 768px) {
+  .headerContainer {
+    height: 4%;
+  }
+  .Logo {
+    font-size: x-large;
+    margin-top: 8%;
+  }
+}
+
+@media (max-width: 576px) {
+  .headerContainer {
+    height: 3%;
+  }
+  .Logo {
+    font-size: large;
+    margin-top: 6%;
+  }
 }

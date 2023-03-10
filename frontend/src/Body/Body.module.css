@@ -1,18 +1,13 @@
 .BodyContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 4% 5%;
-  background-color: aliceblue;
-  height: auto;
-  overflow: auto;
+  background-color: lightcyan;
+  width: 100%;
+  height: 100vh;
 }
 
 .ContentContainer {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
+  outline: none;
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
