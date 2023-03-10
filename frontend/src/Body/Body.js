@@ -19,8 +19,4 @@ function Body({ mainData }) {
     </div>
   );
 }
-/**
- *
- */
-
 export default Body;
