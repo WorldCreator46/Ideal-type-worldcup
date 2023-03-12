@@ -1,23 +1,20 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Body from './Body/Body';
-import Header from './Header/Header';
-import tempData from './Src';
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<MainPage mainData={tempData} />} />
+        <Route path="/" element={<MainPage />} />
       </Routes>
     </Router>
   );
 }
 
-function MainPage({ mainData }) {
+function MainPage() {
   return (
     <div className="mainPage">
-      <Header />
-      <Body mainData={mainData} />
+      <Body />
     </div>
   );
 }
