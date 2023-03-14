@@ -1,12 +1,12 @@
 import React from 'react';
 import LinesEllipsis from 'react-lines-ellipsis';
-import styles from './Profile.module.css';
+import './Profile.css';
 
 function Profile({ name }) {
   return (
-    <div className={styles.profile}>
+    <div className="profile">
       <img src={'2.png'} alt={name} />
-      <LinesEllipsis className={styles.name} text={name} maxLine="1" ellipsis="..." trimRight basedOn="letters" />
+      <LinesEllipsis className="name" text={name.trim()} maxLine="3" ellipsis="" basedOn="letters" />
     </div>
   );
 }

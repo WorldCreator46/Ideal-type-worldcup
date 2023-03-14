@@ -16,7 +16,9 @@
 }
 
 .name {
+  overflow: hidden;
   height: 25px;
   margin: 0;
+  width: 100%;
   font-size: 18px;
 }

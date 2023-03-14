@@ -2,6 +2,7 @@
   background-color: lightcyan;
   height: 100vh;
   overflow: auto;
+  text-align: center;
 }
 
 ::-webkit-scrollbar {

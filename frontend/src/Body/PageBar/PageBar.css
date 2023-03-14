@@ -1,0 +1,15 @@
+.PageBarDiv {
+  padding-top: 20px;
+  width: 100%;
+  height: 80px;
+  user-select: none;
+}
+.PageBarDiv span {
+  font-size: xxx-large;
+  cursor: pointer;
+  padding: 0 10px;
+}
+.select {
+  font-weight: bold;
+  color: tomato;
+}
