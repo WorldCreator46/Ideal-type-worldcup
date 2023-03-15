@@ -4,8 +4,13 @@
   height: 80px;
   user-select: none;
 }
-.PageBarDiv span {
+.number {
   font-size: xxx-large;
+}
+.icon {
+  font-size: xx-large;
+}
+.PageBarDiv span {
   cursor: pointer;
   padding: 0 10px;
 }

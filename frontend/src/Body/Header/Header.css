@@ -9,7 +9,7 @@
 
 .logoContainer {
   background-color: rgb(0, 164, 164);
-  padding: 0 1%;
+  padding: 0 20px;
   cursor: pointer;
   width: auto;
 }
@@ -23,13 +23,56 @@
   color: white;
 }
 
+.searchContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding-left: 1px;
+  border: 1px solid grey;
+}
+
+.searchBox {
+  width: 100%;
+  min-height: 79px;
+  font-size: xxx-large;
+  border: none;
+}
+
+.searchContainer svg {
+  font-size: xxx-large;
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+.optionContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 1099px) {
+  .logo span {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .headerContainer {
     min-height: 60px;
   }
   .logo {
     font-size: x-large;
-    margin-top: 8%;
+    margin-top: 22px;
+  }
+  .logoContainer {
+    padding: 0 16px;
+  }
+  .searchBox {
+    min-height: 60px;
+    font-size: xx-large;
+  }
+  .searchContainer svg {
+    font-size: xx-large;
   }
 }
 
@@ -39,6 +82,16 @@
   }
   .logo {
     font-size: large;
-    margin-top: 6%;
+    margin-top: 14px;
+  }
+  .logoContainer {
+    padding: 0 10px;
+  }
+  .searchBox {
+    min-height: 40px;
+    font-size: x-large;
+  }
+  .searchContainer svg {
+    font-size: x-large;
   }
 }

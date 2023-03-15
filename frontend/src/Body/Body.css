@@ -11,7 +11,7 @@
 
 .gridContainer {
   display: grid;
-  padding-top: 100px;
+  padding-top: 120px;
   justify-items: center;
   align-items: flex-start;
   padding: 1% auto;
@@ -21,13 +21,13 @@
 
 @media (max-width: 768px) {
   .gridContainer {
-    padding-top: 80px;
+    padding-top: 100px;
   }
 }
 
 @media (max-width: 576px) {
   .gridContainer {
-    padding-top: 60px;
+    padding-top: 80px;
   }
 }
 

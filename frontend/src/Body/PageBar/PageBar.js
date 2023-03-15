@@ -49,21 +49,21 @@ function PageBar({ pageNumber, setNumber, totalLength }) {
 
   return (
     <div className="PageBarDiv">
-      <span onClick={first}>
+      <span onClick={first} className="icon">
         <FaBackward />
       </span>
-      <span onClick={backward}>
+      <span onClick={backward} className="icon">
         <FaPlay style={{ transform: 'rotate(180deg)' }} />
       </span>
       {viewer.map((n) => (
-        <span key={n} onClick={() => onClick(n)} className={n === pageNumber ? 'select' : ''}>
+        <span key={n} onClick={() => onClick(n)} className={n === pageNumber ? 'select number' : 'number'}>
           {n}
         </span>
       ))}
-      <span onClick={forward}>
+      <span onClick={forward} className="icon">
         <FaPlay />
       </span>
-      <span onClick={end}>
+      <span onClick={end} className="icon">
         <FaForward />
       </span>
     </div>

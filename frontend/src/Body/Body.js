@@ -29,7 +29,7 @@ function Body() {
   }, [arraySize]);
   return (
     <div className="bodyContainer">
-      <Header />
+      <Header splitDatas={splitDatas} />
       <div className="gridContainer">
         {splitDatas[pageNumber]
           ? splitDatas[pageNumber].map((data, index) => (
