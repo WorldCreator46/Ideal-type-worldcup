@@ -8,6 +8,7 @@ function Header({ splitDatas }) {
     SetSearchData(e.target.value);
   };
   const submitEvent = () => {};
+
   return (
     <div className="headerContainer">
       <div className="logoContainer">
@@ -28,7 +29,23 @@ function Header({ splitDatas }) {
         />
         <FaSearch onClick={submitEvent} />
       </form>
-      <div className="optionContainer"></div>
+      <div className="optionContainer">
+        <div className="SortBy btns">
+          <button type=""></button>
+          <button type=""></button>
+        </div>
+        <div className="Period btns">
+          <button type=""></button>
+          <button type=""></button>
+          <button type=""></button>
+          <button type=""></button>
+        </div>
+        <div className="SelectImageVideo btns">
+          <button type=""></button>
+          <button type=""></button>
+          <button type=""></button>
+        </div>
+      </div>
     </div>
   );
 }

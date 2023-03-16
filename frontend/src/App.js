@@ -7,6 +7,12 @@ function App() {
       <Routes>
         <Route path="/" element={<MainPage />} />
       </Routes>
+      <Routes>
+        <Route path="/worldcup/" element={<MainPage />} />
+      </Routes>
+      <Routes>
+        <Route path="/rank/" element={<MainPage />} />
+      </Routes>
     </Router>
   );
 }
