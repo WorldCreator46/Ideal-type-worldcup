@@ -49,10 +49,17 @@
   display: flex;
   align-items: center;
 }
-.btns {
+
+select {
   flex: 1;
   display: flex;
+  font-size: xx-large;
   align-items: center;
+  margin: 0 3%;
+}
+
+option {
+  text-align: center;
 }
 
 @media (max-width: 1099px) {
@@ -79,6 +86,10 @@
   .searchContainer svg {
     font-size: xx-large;
   }
+  select {
+    font-size: x-large;
+    margin: 0 2%;
+  }
 }
 
 @media (max-width: 576px) {
@@ -98,5 +109,9 @@
   }
   .searchContainer svg {
     font-size: x-large;
+  }
+  select {
+    font-size: large;
+    margin: 0 1%;
   }
 }

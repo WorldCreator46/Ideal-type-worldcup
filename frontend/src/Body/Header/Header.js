@@ -30,21 +30,22 @@ function Header({ splitDatas }) {
         <FaSearch onClick={submitEvent} />
       </form>
       <div className="optionContainer">
-        <div className="SortBy btns">
-          <button type=""></button>
-          <button type=""></button>
-        </div>
-        <div className="Period btns">
-          <button type=""></button>
-          <button type=""></button>
-          <button type=""></button>
-          <button type=""></button>
-        </div>
-        <div className="SelectImageVideo btns">
-          <button type=""></button>
-          <button type=""></button>
-          <button type=""></button>
-        </div>
+        <select className="SortBy">
+          <option className="popularity">인기순</option>
+          <option className="latest">최신순</option>
+        </select>
+        <select className="Period">
+          <option className="all">전체</option>
+          <option className="yaer">년</option>
+          <option className="month">월</option>
+          <option className="week">주</option>
+          <option className="day">일</option>
+        </select>
+        <select className="SelectImageVideo">
+          <option className="all">전체</option>
+          <option className="image">이미지</option>
+          <option className="video">영상</option>
+        </select>
       </div>
     </div>
   );
