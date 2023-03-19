@@ -4,7 +4,6 @@ import './PageBar.css';
 
 function PageBar({ pageNumber, setNumber, totalLength }) {
   const [viewer, setView] = useState([]);
-
   const first = () => {
     setNumber(1);
   };
@@ -44,7 +43,9 @@ function PageBar({ pageNumber, setNumber, totalLength }) {
   }, [pageNumber, totalLength]);
 
   const onClick = (num) => {
-    setNumber(num);
+    if (num < totalLength) {
+      setNumber(num);
+    }
   };
 
   return (
