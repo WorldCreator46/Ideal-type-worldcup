@@ -2,15 +2,12 @@ import React, { useEffect, useState } from 'react';
 import { FaSearch, FaTrophy } from 'react-icons/fa';
 import './Header.css';
 
-function Header({ splitDatas }) {
+function Header({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo }) {
   const [searchData, SetSearchData] = useState('');
   const onChange = (e) => {
     SetSearchData(e.target.value);
   };
   const submitEvent = (e) => {};
-  const [sortBy, setSortBy] = useState('인기순');
-  const [period, setPeriod] = useState('전체');
-  const [imageVideo, setImageVideo] = useState('전체');
   const onChangeSortBy = (e) => {
     setSortBy(e.target.value);
   };

@@ -5,7 +5,7 @@ import Content from './Content/Content';
 import Header from './Header/Header';
 import PageBar from './PageBar/PageBar';
 
-function Body() {
+function Body({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo }) {
   const [pageNumber, setNumber] = useState(1);
   const [arraySize, setSize] = useState(3);
 
@@ -21,15 +21,46 @@ function Body() {
   }, []);
   const splitDatas = useMemo(() => {
     const chunkSize = arraySize;
+    let tempList = [...mainData],
+      imageVideoStep,
+      periodStep,
+      sortByStep;
+    if (imageVideo === '전체') {
+      imageVideoStep = [...mainData];
+    } else if (imageVideo === '이미지') {
+      imageVideoStep = mainData.filter((item) => item.ImageVideoClassification === 'Image');
+    } else if (imageVideo === '영상') {
+      imageVideoStep = mainData.filter((item) => item.ImageVideoClassification === 'Video');
+    }
+
+    if (period === '전체') {
+      //periodStep=
+    } else if (period === '년') {
+    } else if (period === '월') {
+    } else if (period === '주') {
+    } else if (period === '일') {
+    }
+
+    if (sortBy === '이미지') {
+    } else if (sortBy === '영상') {
+    }
+
     const newArr = [[]];
-    for (let i = 0; i < mainData.length; i += chunkSize) {
-      newArr.push(mainData.slice(i, i + chunkSize));
+    for (let i = 0; i < tempList.length; i += chunkSize) {
+      newArr.push(tempList.slice(i, i + chunkSize));
     }
     return newArr;
-  }, [arraySize]);
+  }, [arraySize, sortBy, period, imageVideo]);
   return (
     <div className="bodyContainer">
-      <Header splitDatas={splitDatas} />
+      <Header
+        sortBy={sortBy}
+        setSortBy={setSortBy}
+        period={period}
+        setPeriod={setPeriod}
+        imageVideo={imageVideo}
+        setImageVideo={setImageVideo}
+      />
       <div className="gridContainer">
         {splitDatas[pageNumber]
           ? splitDatas[pageNumber].map((data, index) => (
