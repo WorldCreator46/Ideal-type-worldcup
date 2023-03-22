@@ -32,32 +32,32 @@ function Body({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo 
       imageVideoStep = mainData.filter((item) => item.ImageVideoClassification === 'Video');
     }
 
+    if (imageVideoStep.length === 0) {
+      imageVideoStep = [...mainData];
+      setImageVideo('전체');
+    }
+
     if (period === '전체') {
       periodStep = [...imageVideoStep];
-    } else {
-      periodStep = imageVideoStep.filter((item) => {
-        const lastRevisionDate = moment(item.LastRevisionDate);
-        const diffDays = moment().tz('Asia/Seoul').diff(lastRevisionDate, 'days');
-        if (period === '년' && diffDays <= 365) {
-          return true;
-        }
-        if (period === '월' && diffDays <= 31) {
-          return true;
-        }
-        if (period === '주' && diffDays <= 7) {
-          return true;
-        }
-        if (period === '일' && diffDays <= 1) {
-          return true;
-        }
-        return false;
-      });
+    } else if (period === '년') {
+      periodStep = imageVideoStep.filter((item) => moment().diff(item.LastRevisionDate, 'days') <= 365);
+    } else if (period === '월') {
+      periodStep = imageVideoStep.filter((item) => moment().diff(item.LastRevisionDate, 'days') <= 31);
+    } else if (period === '주') {
+      periodStep = imageVideoStep.filter((item) => moment().diff(item.LastRevisionDate, 'days') <= 7);
+    } else if (period === '일') {
+      periodStep = imageVideoStep.filter((item) => moment().diff(item.LastRevisionDate, 'days') <= 1);
+    }
+
+    if (periodStep.length === 0) {
+      periodStep = [...imageVideoStep];
+      setPeriod('전체');
     }
 
     if (sortBy === '인기순') {
       sortByStep = periodStep.sort((a, b) => b.NumberOfTimesPlayed - a.NumberOfTimesPlayed);
     } else if (sortBy === '최신순') {
-      sortByStep = periodStep.sort((a, b) => moment(b.LastRevisionDate).diff(moment(a.LastRevisionDate)));
+      sortByStep = periodStep.sort((a, b) => moment(a.LastRevisionDate).diff(moment(b.LastRevisionDate)));
     }
 
     const tempList = [...sortByStep];
@@ -66,7 +66,7 @@ function Body({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo 
       newArr.push(tempList.slice(i, i + chunkSize));
     }
     return newArr;
-  }, [arraySize, sortBy, period, imageVideo]);
+  }, [arraySize, sortBy, period, imageVideo, setImageVideo, setPeriod]);
   return (
     <div className="bodyContainer">
       <Header

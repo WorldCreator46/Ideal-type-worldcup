@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { FaSearch, FaTrophy } from 'react-icons/fa';
 import './Header.css';
 
@@ -17,12 +17,6 @@ function Header({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVide
   const onChangeImageVideo = (e) => {
     setImageVideo(e.target.value);
   };
-  useEffect(() => {
-    filteredData({ sortBy: sortBy, period: period, imageVideo: imageVideo, searchData: searchData });
-  }, [sortBy, period, imageVideo, searchData]);
-  function filteredData({ sortBy, period, imageVideo, searchData }) {
-    console.log(sortBy, period, imageVideo, searchData);
-  }
 
   return (
     <div className="headerContainer">
