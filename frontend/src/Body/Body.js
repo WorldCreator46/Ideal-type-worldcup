@@ -1,3 +1,5 @@
+import moment from 'moment';
+import 'moment-timezone';
 import React, { useEffect, useMemo, useState } from 'react';
 import mainData from '../Src';
 import './Body.css';
@@ -21,10 +23,7 @@ function Body({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo 
   }, []);
   const splitDatas = useMemo(() => {
     const chunkSize = arraySize;
-    let tempList = [...mainData],
-      imageVideoStep,
-      periodStep,
-      sortByStep;
+    let imageVideoStep, periodStep, sortByStep;
     if (imageVideo === '전체') {
       imageVideoStep = [...mainData];
     } else if (imageVideo === '이미지') {
@@ -34,17 +33,34 @@ function Body({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo 
     }
 
     if (period === '전체') {
-      //periodStep=
-    } else if (period === '년') {
-    } else if (period === '월') {
-    } else if (period === '주') {
-    } else if (period === '일') {
+      periodStep = [...imageVideoStep];
+    } else {
+      periodStep = imageVideoStep.filter((item) => {
+        const lastRevisionDate = moment(item.LastRevisionDate);
+        const diffDays = moment().tz('Asia/Seoul').diff(lastRevisionDate, 'days');
+        if (period === '년' && diffDays <= 365) {
+          return true;
+        }
+        if (period === '월' && diffDays <= 31) {
+          return true;
+        }
+        if (period === '주' && diffDays <= 7) {
+          return true;
+        }
+        if (period === '일' && diffDays <= 1) {
+          return true;
+        }
+        return false;
+      });
     }
 
-    if (sortBy === '이미지') {
-    } else if (sortBy === '영상') {
+    if (sortBy === '인기순') {
+      sortByStep = periodStep.sort((a, b) => b.NumberOfTimesPlayed - a.NumberOfTimesPlayed);
+    } else if (sortBy === '최신순') {
+      sortByStep = periodStep.sort((a, b) => moment(b.LastRevisionDate).diff(moment(a.LastRevisionDate)));
     }
 
+    const tempList = [...sortByStep];
     const newArr = [[]];
     for (let i = 0; i < tempList.length; i += chunkSize) {
       newArr.push(tempList.slice(i, i + chunkSize));
