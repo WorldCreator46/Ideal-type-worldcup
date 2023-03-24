@@ -1,15 +1,17 @@
 import moment from 'moment';
 import 'moment-timezone';
 import React, { useEffect, useMemo, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import mainData from '../Src';
 import './Body.css';
 import Content from './Content/Content';
 import Header from './Header/Header';
 import PageBar from './PageBar/PageBar';
 
-function Body({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo }) {
+function Body({ keyword, sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo }) {
   const [pageNumber, setNumber] = useState(1);
   const [arraySize, setSize] = useState(3);
+  const movePage = useNavigate();
 
   useEffect(() => {
     const handleResize = () => {
@@ -23,17 +25,29 @@ function Body({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo 
   }, []);
   const splitDatas = useMemo(() => {
     const chunkSize = arraySize;
-    let imageVideoStep, periodStep, sortByStep;
+    let keywordStep, imageVideoStep, periodStep, sortByStep;
+
+    if (keyword === undefined) {
+      keywordStep = [...mainData];
+    } else {
+      keywordStep = mainData.filter((item) => item.title.includes(keyword));
+    }
+
+    if (keywordStep.length === 0) {
+      keywordStep = [...mainData];
+      movePage('/');
+    }
+
     if (imageVideo === '전체') {
-      imageVideoStep = [...mainData];
+      imageVideoStep = [...keywordStep];
     } else if (imageVideo === '이미지') {
-      imageVideoStep = mainData.filter((item) => item.ImageVideoClassification === 'Image');
+      imageVideoStep = keywordStep.filter((item) => item.ImageVideoClassification === 'Image');
     } else if (imageVideo === '영상') {
-      imageVideoStep = mainData.filter((item) => item.ImageVideoClassification === 'Video');
+      imageVideoStep = keywordStep.filter((item) => item.ImageVideoClassification === 'Video');
     }
 
     if (imageVideoStep.length === 0) {
-      imageVideoStep = [...mainData];
+      imageVideoStep = [...keywordStep];
       setImageVideo('전체');
     }
 
@@ -66,7 +80,7 @@ function Body({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo 
       newArr.push(tempList.slice(i, i + chunkSize));
     }
     return newArr;
-  }, [arraySize, sortBy, period, imageVideo, setImageVideo, setPeriod]);
+  }, [arraySize, sortBy, period, imageVideo, setImageVideo, setPeriod, keyword, movePage]);
   return (
     <div className="bodyContainer">
       <Header

@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { FaSearch, FaTrophy } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 import './Header.css';
 
 function Header({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVideo }) {
+  const movePage = useNavigate();
   const [searchData, SetSearchData] = useState('');
   const onChange = (e) => {
     SetSearchData(e.target.value);
   };
-  const submitEvent = (e) => {};
   const onChangeSortBy = (e) => {
     setSortBy(e.target.value);
   };
@@ -17,10 +18,30 @@ function Header({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVide
   const onChangeImageVideo = (e) => {
     setImageVideo(e.target.value);
   };
+  const submitEvent = (e) => {
+    e.preventDefault();
+    if (searchData !== undefined && searchData !== '') {
+      movePage(`/search/${searchData}`);
+    } else {
+      movePage('/');
+    }
+    SetSearchData('');
+  };
+
+  const onKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      submitEvent(e);
+    }
+  };
 
   return (
     <div className="headerContainer">
-      <div className="logoContainer">
+      <div
+        onClick={() => {
+          movePage('/');
+        }}
+        className="logoContainer"
+      >
         <h1 className="logo">
           <FaTrophy />
           <span> &nbsp;이상형 월드컵</span>
@@ -35,6 +56,7 @@ function Header({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVide
           placeholder=""
           required={true}
           onSubmit={submitEvent}
+          onKeyDown={onKeyDown}
         />
         <FaSearch onClick={submitEvent} />
       </form>
