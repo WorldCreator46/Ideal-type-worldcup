@@ -5,6 +5,7 @@
   background-color: #ffffff;
   color: #000000;
   position: fixed;
+  border-bottom: 1px solid gray;
 }
 
 .logoContainer {
@@ -29,6 +30,7 @@
   align-items: center;
   padding-left: 1px;
   border: 1px solid grey;
+  border-bottom: none;
 }
 
 .searchBox {

@@ -22,8 +22,6 @@ function Header({ sortBy, setSortBy, period, setPeriod, imageVideo, setImageVide
     e.preventDefault();
     if (searchData !== undefined && searchData !== '') {
       movePage(`/search/${searchData}`);
-    } else {
-      movePage('/');
     }
     SetSearchData('');
   };

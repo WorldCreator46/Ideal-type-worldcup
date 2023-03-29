@@ -23,6 +23,7 @@ function Body({ keyword, sortBy, setSortBy, period, setPeriod, imageVideo, setIm
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
   const splitDatas = useMemo(() => {
     const chunkSize = arraySize;
     let keywordStep, imageVideoStep, periodStep, sortByStep;
