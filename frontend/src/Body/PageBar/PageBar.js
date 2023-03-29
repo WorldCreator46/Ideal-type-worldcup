@@ -32,7 +32,7 @@ function PageBar({ pageNumber, setNumber, totalLength }) {
 
   useEffect(() => {
     let temp = [];
-    if (pageNumber < 3) {
+    if (pageNumber < 5) {
       temp = [1, 2, 3, 4, 5];
     } else if (pageNumber > totalLength - 3) {
       temp = [totalLength - 5, totalLength - 4, totalLength - 3, totalLength - 2, totalLength - 1];

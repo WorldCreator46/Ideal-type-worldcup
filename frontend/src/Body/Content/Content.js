@@ -4,7 +4,7 @@ import Buttons from './Buttons/Buttons';
 import './Content.css';
 import Profile from './Profile/Profile';
 
-function Content({ id, title, description, firstPlace, secondPlace }) {
+function Content({ id, title, description, firstPlace, secondPlace, LastRevisionDate, NumberOfTimesPlayed }) {
   return (
     <div className="content">
       <div className="profilesContainer">
@@ -22,7 +22,8 @@ function Content({ id, title, description, firstPlace, secondPlace }) {
         />
         <LinesEllipsis
           className="description"
-          text={description.trim()}
+          //description.trim()
+          text={LastRevisionDate + ' / ' + NumberOfTimesPlayed}
           maxLine="50"
           ellipsis=""
           basedOn="letters"

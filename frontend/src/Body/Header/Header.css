@@ -31,6 +31,7 @@
   padding-left: 1px;
   border: 1px solid grey;
   border-bottom: none;
+  border-top: none;
 }
 
 .searchBox {

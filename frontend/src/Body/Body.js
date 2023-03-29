@@ -102,6 +102,8 @@ function Body({ keyword, sortBy, setSortBy, period, setPeriod, imageVideo, setIm
                 description={data.description}
                 firstPlace={data.firstPlace}
                 secondPlace={data.secondPlace}
+                LastRevisionDate={data.LastRevisionDate}
+                NumberOfTimesPlayed={data.NumberOfTimesPlayed}
               />
             ))
           : splitDatas[1].map((data, index) => (
@@ -112,6 +114,8 @@ function Body({ keyword, sortBy, setSortBy, period, setPeriod, imageVideo, setIm
                 description={data.description}
                 firstPlace={data.firstPlace}
                 secondPlace={data.secondPlace}
+                LastRevisionDate={data.LastRevisionDate}
+                NumberOfTimesPlayed={data.NumberOfTimesPlayed}
               />
             ))}
       </div>
