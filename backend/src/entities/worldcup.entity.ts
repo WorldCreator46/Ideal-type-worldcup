@@ -3,6 +3,7 @@ import {
   CreateDateColumn,
   Entity,
   PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('worldcups')
@@ -11,17 +12,29 @@ export class WorldCup {
   id: string;
 
   @Column()
+  createrId: string;
+
+  @Column()
   title: string;
 
   @Column()
   description: string;
 
-  @CreateDateColumn()
-  LastRevisionDate: Date;
+  @Column()
+  numberOfTimesPlayed: number;
 
   @Column()
-  NumberOfTimesPlayed: number;
+  imageVideoClassification: string;
 
-  @Column()
-  ImageVideoClassification: string;
+  @CreateDateColumn({
+    name: 'created_at',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  createdDate: Date;
+
+  @UpdateDateColumn({
+    name: 'last_revision_date',
+    default: () => 'CURRENT_TIMESTAMP',
+  })
+  lastRevisionDate: Date;
 }
