@@ -5,6 +5,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import * as ormconfig from './ormconfig';
 import { UserModule } from './user/user.module';
+import { WorldcupModule } from './worldcup/worldcup.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { UserModule } from './user/user.module';
     }),
     TypeOrmModule.forRoot(ormconfig),
     UserModule,
+    WorldcupModule,
   ],
   controllers: [AppController],
   providers: [AppService],
